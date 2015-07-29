@@ -1,0 +1,38 @@
+
+<h1>Listing Posts</h1>
+
+<div id="post-div" class="control-group">
+  <table id="post-table" class="table table-condensed table-striped table-hover" href="#post-table">
+    <thead>
+      <tr>
+        <th>Title</th>        
+        <th>Body</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.title %></td>
+        <td><%= post.body %></td>
+        <td>          
+          <div class="btn-group" role="group" aria-label="...">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Actions
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><%= link_to 'Show', post %></li>
+              <li><%= link_to 'Edit', edit_post_path(post) %></li>
+              <li><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+            </ul>            
+          </div>
+        </td>        
+      </tr>
+    <% end %>
+    </tbody>
+  </table>    
+</div>
+
+<br>
+
+<%= link_to 'New Post', new_post_path, :class => 'btn btn-success btn-xs' %>

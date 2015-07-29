@@ -1,14 +1,74 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Omc</title>
+  <title>OMC</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<!-- TOP NAV BAR -->
 
-<%= yield %>
+<!--    <div class="navbar navbar-default navbar-static-top"> -->
+    <div class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">OMC</a>
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+          <ul class="nav navbar-nav">
+            <li>
+              <%= link_to posts_path  do %> 
+                <i class="glyphicon glyphicon-th-list"></i> Posts
+              <% end %>
+            </li>            
+          </ul>
 
-</body>
+          <!-- RIGHT NAV BAR -->
+
+          <ul class="nav navbar-nav pull-right">
+                      
+            <!-- (SEARCH) <li>
+              <form class="form-search navbar-search">
+                <div class="input-append">
+                  <input type="text" class="input-medium search-query" placeholder="Search">
+                  <button type="submit" class="btn"><i class="icon-search"></i></button>
+                </div>
+              </form>
+            </li> -->
+            <!--<li><img src="/assets/ibm-logo.png" class="img-responsive"></li> -->
+          </ul>
+
+        </div>
+      </div>
+    </div>   
+    <div id="main-container" class="container">
+      <div class="row">
+        <!-- Sidebar -->
+        <div class="col-lg-3">
+          <div class="well sidebar-nav">
+            <h3>OMC</h3>
+            <ul class="nav nav-list">
+              <li class="nav-header">Actions:</li>
+                <li><%= link_to "Create new post", new_post_path  %></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+        <!-- Main Window -->
+        <div class="col-lg-9">
+          <%= bootstrap_flash %>
+          <%= yield %>
+        </div>        
+      </div><!--/row-->
+
+      <footer>
+        <p>&copy; made by Wood</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+  </body>
 </html>
